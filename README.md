@@ -4,6 +4,7 @@ this built upon cs50 sentiments assignment.
 https://captmomo.github.io/tripadvisor-singapore-zoo/
 <img src="newplot.png" alt="hi" class="inline"/>
 <table cellspacing="5" cellpadding="2">
+<table style="float: left;">
 <tbody>
 <tr>
 <th>Word</th>
@@ -277,6 +278,7 @@ https://captmomo.github.io/tripadvisor-singapore-zoo/
 </table>
 
 <table cellspacing="5" cellpadding="2">
+<table style="float: left;">
 
 <tbody>
 
