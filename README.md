@@ -2,10 +2,10 @@
 python script to scrape reviews from tripadvisor. perform sentiment analysis and word frequency count.
 this built upon cs50 sentiments assignment.  
 https://captmomo.github.io/tripadvisor-singapore-zoo/  
-# Sentiment analysis piechart
+## Sentiment analysis piechart
 <img src="newplot.png" alt="hi" class="inline"/>
 
-# Top 50 most frequently used words
+## Top 50 most frequently used words
 <table cellspacing="5" cellpadding="2">
 <table style="float: left;">
 <tbody>
@@ -280,7 +280,7 @@ https://captmomo.github.io/tripadvisor-singapore-zoo/
 
 </table>
   
-# Top 50 most frequently mentioned animals  
+## Top 50 most frequently mentioned animals  
 <table cellspacing="5" cellpadding="2">
 <table style="float: left;">
 <tbody>
