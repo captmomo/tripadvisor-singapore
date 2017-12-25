@@ -275,14 +275,11 @@ https://captmomo.github.io/tripadvisor-singapore-zoo/
 <td>1483</td>
 
 </tr>
-
 </tbody>
-
 </table>
   
-## Top 50 most frequently mentioned animals  
+## Top 50 most frequently mentioned animals
 <table cellspacing="5" cellpadding="2">
-<table style="float: left;">
 <tbody>
 <tr>
 
