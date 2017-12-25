@@ -1,11 +1,10 @@
 # tripadvisor-singapore
 python script to scrape reviews from tripadvisor. perform sentiment analysis and word frequency count.
+this built upon cs50 sentiments assignment.
 
 <img src="newplot.png" alt="hi" class="inline"/>
 <table cellspacing="5" cellpadding="2">
-
 <tbody>
-
 <tr>
 <th>Word</th>
 <th>Occurances</th>
