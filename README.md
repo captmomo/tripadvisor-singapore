@@ -7,7 +7,6 @@ https://captmomo.github.io/tripadvisor-singapore-zoo/
 
 ## Top 50 most frequently used words
 <table cellspacing="5" cellpadding="2">
-<table style="float: left;">
 <tbody>
 <tr>
 <th>Word</th>
@@ -278,7 +277,7 @@ https://captmomo.github.io/tripadvisor-singapore-zoo/
 </tbody>
 </table>
   
-## Top 50 most frequently mentioned animals
+## Animals mentioned
 <table cellspacing="5" cellpadding="2">
 <tbody>
 <tr>
