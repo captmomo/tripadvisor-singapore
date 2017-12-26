@@ -3,7 +3,14 @@ python script to scrape reviews from tripadvisor. perform sentiment analysis and
 this built upon cs50 sentiments assignment.  
 https://captmomo.github.io/tripadvisor-singapore-zoo/  
 ## Sentiment analysis piechart
-<img src="newplot.png" alt="hi" class="inline"/>
+
+### Results from totaling the score for each review:
+
+<img src="individual_review_plot.png" alt="individual reviews" class="inline"/>
+
+### Results from analyzing the entire text as a whole:
+
+<img src="newplot.png" alt="entire text" class="inline"/>
 
 ## Top 50 most frequently used words
 <table cellspacing="5" cellpadding="2">
