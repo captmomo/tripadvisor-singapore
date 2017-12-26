@@ -278,216 +278,245 @@ https://captmomo.github.io/tripadvisor-singapore-zoo/
 </table>
   
 ## Animals mentioned
-<table cellspacing="5" cellpadding="2">
-<tbody>
-<tr>
-
-<th>Animal</th>
-
-<th>Occurances</th>
-
-</tr>
-
-<tr>
-
-<td>orangutan</td>
-
-<td>2160</td>
-
-</tr>
-
-<tr>
-
-<td>monkey</td>
-
-<td>1057</td>
-
-</tr>
-
-<tr>
-
-<td>lion</td>
-
-<td>674</td>
-
-</tr>
-
-<tr>
-
-<td>snake</td>
-
-<td>234</td>
-
-</tr>
-
-<tr>
-
-<td>kangaroo</td>
-
-<td>176</td>
-
-</tr>
-
-<tr>
-
-<td>baboon</td>
-
-<td>174</td>
-
-</tr>
-
-<tr>
-
-<td>zebra</td>
-
-<td>130</td>
-
-</tr>
-
-<tr>
-
-<td>cheetah</td>
-
-<td>112</td>
-
-</tr>
-
-<tr>
-
-<td>leopard</td>
-
-<td>100</td>
-
-</tr>
-
-<tr>
-
-<td>otter</td>
-
-<td>90</td>
-
-</tr>
-
-<tr>
-
-<td>dog</td>
-
-<td>76</td>
-
-</tr>
-
-<tr>
-
-<td>goat</td>
-
-<td>66</td>
-
-</tr>
-
-<tr>
-
-<td>meerkat</td>
-
-<td>31</td>
-
-</tr>
-
-<tr>
-
-<td>gibbon</td>
-
-<td>23</td>
-
-</tr>
-
-<tr>
-
-<td>mole</td>
-
-<td>14</td>
-
-</tr>
-
-<tr>
-
-<td>warthog</td>
-
-<td>12</td>
-
-</tr>
-
-<tr>
-
-<td>arapaima</td>
-
-<td>10</td>
-
-</tr>
-
-<tr>
-
-<td>iguana</td>
-
-<td>8</td>
-
-</tr>
-
-<tr>
-
-<td>pig</td>
-
-<td>7</td>
-
-</tr>
-
-<tr>
-
-<td>babirusa</td>
-
-<td>7</td>
-
-</tr>
-
-<tr>
-
-<td>hog</td>
-
-<td>7</td>
-
-</tr>
-
-<tr>
-
-<td>giraffe</td>
-
-<td>4</td>
-
-</tr>
-
-<tr>
-
-<td>falabella</td>
-
-<td>3</td>
-
-</tr>
-
-<tr>
-
-<td>rhinoceros</td>
-
-<td>3</td>
-
-</tr>
-
-<tr>
-
-<td>terrapin</td>
-
-<td>1</td>
-
-</tr>
-
-</tbody>
-
-</table>
+ <table cellspacing="5" cellpadding="2">
+        <tr>
+            <th>Animal</th> 
+            <th>Occurances</th>  
+        </tr>
+    
+    <tr>
+    <td>orangutan</td>
+    <td>2160</td>  
+    </tr>
+    
+    <tr>
+    <td>bear</td>
+    <td>1523</td>  
+    </tr>
+    
+    <tr>
+    <td>monkey</td>
+    <td>1057</td>  
+    </tr>
+    
+    <tr>
+    <td>lion</td>
+    <td>674</td>  
+    </tr>
+    
+    <tr>
+    <td>lemur</td>
+    <td>271</td>  
+    </tr>
+    
+    <tr>
+    <td>snake</td>
+    <td>234</td>  
+    </tr>
+    
+    <tr>
+    <td>kangaroo</td>
+    <td>176</td>  
+    </tr>
+    
+    <tr>
+    <td>baboon</td>
+    <td>174</td>  
+    </tr>
+    
+    <tr>
+    <td>hippo</td>
+    <td>147</td>  
+    </tr>
+    
+    <tr>
+    <td>zebra</td>
+    <td>130</td>  
+    </tr>
+    
+    <tr>
+    <td>penguin</td>
+    <td>115</td>  
+    </tr>
+    
+    <tr>
+    <td>cheetah</td>
+    <td>112</td>  
+    </tr>
+    
+    <tr>
+    <td>leopard</td>
+    <td>100</td>  
+    </tr>
+    
+    <tr>
+    <td>otter</td>
+    <td>90</td>  
+    </tr>
+    
+    <tr>
+    <td>komodo</td>
+    <td>80</td>  
+    </tr>
+    
+    <tr>
+    <td>sloth</td>
+    <td>80</td>  
+    </tr>
+    
+    <tr>
+    <td>dog</td>
+    <td>76</td>  
+    </tr>
+    
+    <tr>
+    <td>deer</td>
+    <td>74</td>  
+    </tr>
+    
+    <tr>
+    <td>goat</td>
+    <td>66</td>  
+    </tr>
+    
+    <tr>
+    <td>fox</td>
+    <td>66</td>  
+    </tr>
+    
+    <tr>
+    <td>parrot</td>
+    <td>47</td>  
+    </tr>
+    
+    <tr>
+    <td>lizard</td>
+    <td>42</td>  
+    </tr>
+    
+    <tr>
+    <td>python</td>
+    <td>42</td>  
+    </tr>
+    
+    <tr>
+    <td>tapir</td>
+    <td>33</td>  
+    </tr>
+    
+    <tr>
+    <td>tamarin</td>
+    <td>32</td>  
+    </tr>
+    
+    <tr>
+    <td>meerkat</td>
+    <td>31</td>  
+    </tr>
+    
+    <tr>
+    <td>flamingo</td>
+    <td>27</td>  
+    </tr>
+    
+    <tr>
+    <td>gibbon</td>
+    <td>23</td>  
+    </tr>
+    
+    <tr>
+    <td>rabbit</td>
+    <td>19</td>  
+    </tr>
+    
+    <tr>
+    <td>rat</td>
+    <td>19</td>  
+    </tr>
+    
+    <tr>
+    <td>cobra</td>
+    <td>16</td>  
+    </tr>
+    
+    <tr>
+    <td>mole</td>
+    <td>14</td>  
+    </tr>
+    
+    <tr>
+    <td>warthog</td>
+    <td>12</td>  
+    </tr>
+    
+    <tr>
+    <td>arapaima</td>
+    <td>10</td>  
+    </tr>
+    
+    <tr>
+    <td>iguana</td>
+    <td>8</td>  
+    </tr>
+    
+    <tr>
+    <td>panther</td>
+    <td>8</td>  
+    </tr>
+    
+    <tr>
+    <td>raccoon</td>
+    <td>8</td>  
+    </tr>
+    
+    <tr>
+    <td>pig</td>
+    <td>7</td>  
+    </tr>
+    
+    <tr>
+    <td>babirusa</td>
+    <td>7</td>  
+    </tr>
+    
+    <tr>
+    <td>hog</td>
+    <td>7</td>  
+    </tr>
+    
+    <tr>
+    <td>boa</td>
+    <td>7</td>  
+    </tr>
+    
+    <tr>
+    <td>saki</td>
+    <td>5</td>  
+    </tr>
+    
+    <tr>
+    <td>giraffe</td>
+    <td>4</td>  
+    </tr>
+    
+    <tr>
+    <td>falabella</td>
+    <td>3</td>  
+    </tr>
+    
+    <tr>
+    <td>rhinoceros</td>
+    <td>3</td>  
+    </tr>
+    
+    <tr>
+    <td>hippopotamus</td>
+    <td>1</td>  
+    </tr>
+    
+    <tr>
+    <td>terrapin</td>
+    <td>1</td>  
+    </tr>
+    
+    </table>
