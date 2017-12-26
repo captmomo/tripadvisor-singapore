@@ -519,4 +519,3 @@ https://captmomo.github.io/tripadvisor-singapore-zoo/
     <td>1</td>  
     </tr>
     
-    </table>
