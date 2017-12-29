@@ -1,7 +1,9 @@
 import nltk
 import re
-import cs50
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
 from nltk.probability import FreqDist
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 class Analyzer():
     """Implements sentiment analysis."""
@@ -25,8 +27,16 @@ class Analyzer():
 
     def analyze(self, text):
         """Analyze text for sentiment, returning its score."""
-        tokenizer = nltk.tokenize.TweetTokenizer()
-        tokens = tokenizer.tokenize(text.lower())
+        #tokenizer = nltk.tokenize.TweetTokenizer()
+        stop_words = stopwords.words('english')
+        tokens = word_tokenize(text)
+        # normalize to lower case
+        tokens = [word.lower() for word in tokens]
+        # remove all tokens that are not alphabetic
+        tokens = [word for word in tokens if word.isalpha()]
+        # remove stopwords
+        tokens = [word for word in tokens if not word in stop_words]
+        #tokens = tokenizer.tokenize(text.lower())
             
         score = 0    
         #https://stackoverflow.com/questions/8275417/check-substring-match-of-a-word-in-a-list-of-words
@@ -40,6 +50,11 @@ class Analyzer():
         #print(score)       
         # TODO
         return score
+    
+    def vader_analyze(self, text):
+        vader = SentimentIntensityAnalyzer()
+        score = vader.polarity_scores(text)
+        return score['compound']
 
     def frequency(self, text):
         fdist1 = FreqDist(text)
