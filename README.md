@@ -4,6 +4,10 @@ this built upon cs50 sentiments assignment.
 https://captmomo.github.io/tripadvisor-singapore-zoo/  
 ## Sentiment analysis piechart
 
+## Results using VADER sentiment intensity analyzer
+
+<img src='vader_plot.png' alt='vader plot' class='inline'/>
+
 ### Results from totaling the score for each review:
 
 <img src="individual_review_plot.png" alt="individual reviews" class="inline"/>
