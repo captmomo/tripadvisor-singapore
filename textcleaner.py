@@ -1,6 +1,6 @@
-from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
+
 #https://machinelearningmastery.com/clean-text-machine-learning-python/
 stop_words = stopwords.words('english')
 filename = 'zooreviews_2.txt'
@@ -16,7 +16,7 @@ words = [word for word in tokens if word.isalpha()]
 # remove stopwords
 words = [word for word in words if not word in stop_words]
 #for word in words:
-    #print(word)
+#print(word)
 
 with open('cleantext.txt', 'w+',encoding='utf-8') as f:
     for word in words:
