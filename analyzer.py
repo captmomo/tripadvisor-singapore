@@ -1,53 +1,64 @@
-import re
+import csv
+import sys
+import time
 
-import cs50
-import nltk
-from nltk import tokenize
-from nltk.corpus import stopwords
-from nltk.probability import FreqDist
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
-from nltk.tokenize import word_tokenize
+from bs4 import BeautifulSoup
+from selenium import webdriver
+from selenium.webdriver import DesiredCapabilities
 
 
-class Analyzer():
-    """Implements sentiment analysis."""
+def set_headers():
+    desired_capabilities = DesiredCapabilities.PHANTOMJS.copy()
+    desired_capabilities['phantomjs.page.customHeaders.User-Agent'] = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) ' \
+        'AppleWebKit/537.36 (KHTML, like Gecko) ' \
+        'Chrome/39.0.2171.95 Safari/537.36'
+    driver = webdriver.PhantomJS(desired_capabilities=desired_capabilities)
+    return driver
 
-    def __init__(self, positives, negatives):
-        """Initialize Analyzer."""
-        self.positives = []
-        self.negatives = []
-        #https://stackoverflow.com/questions/15778747/clarifications-on-the-re-findall-method-in-python
-        with open("positive-words.txt", 'r') as lines:
-            for line in lines:
-                positive_words = re.findall(r"[\w]+|[.,!?;]", line.rstrip())
-                #print(pos_words)
-                self.positives.append(positive_words)
 
-        with open("negative-words.txt", 'r') as lines:
-            for line in lines:
-                negative_words = re.findall(r"[\w]+|[.,!?;]", line.rstrip())
-                #print(pos_words)
-                self.negatives.append(negative_words)
+def scrape_with_headers(url):
+    driver = set_headers()
+    driver.get(url)
+    time.sleep(2)
+    element1 = driver.find_elements_by_css_selector(
+        'span[class*="taLnk ulBlueLinks"]')
+    if len(element1) != 0:
+        element1[0].click()
+        time.sleep(2)
+    html = (driver.page_source).encode('utf-8')
+    extract_reviews(html, driver)
 
-    def analyze(self, text):
-        """Analyze text for sentiment, returning its score."""
-        #tokenizer = nltk.tokenize.TweetTokenizer()
-        stop_words = stopwords.words('english')
-        tokens = word_tokenize(text)
-        # normalize to lower case
-        tokens = [word.lower() for word in tokens]
-        # remove all tokens that are not alphabetic
-        tokens = [word for word in tokens if word.isalpha()]
-        # remove stopwords
-        tokens = [word for word in tokens if not word in stop_words]
-        #tokens = tokenizer.tokenize(text.lower())
 
-        score = 0
-        #https://stackoverflow.com/questions/8275417/check-substring-match-of-a-word-in-a-list-of-words
-        for token in tokens:
-            for item in self.positives:
-                if token in item:
-                    score = score + 1
+def extract_reviews(html, driver):
+    soup = BeautifulSoup(html, 'lxml')
+    for review in soup.find_all("div", {"class": "prw_rup prw_reviews_basic_review_hsx"}):
+        review_text = review.find("p", {"class": "partial_entry"}).text
+        wr = csv.writer(csvfile, dialect='excel')
+        wr.writerow([review_text])
+
+    navigation = soup.find("div", {"class": "unified pagination north_star "})
+    if navigation.find("span", {"class": "nav next disabled"}) == None:
+        next_button = driver.find_element_by_xpath(
+            "//div[@class='ui_button primary ' and text()='Next']")
+        next_button.click()
+        time.sleep(2)
+        element1 = driver.find_elements_by_css_selector(
+            'span[class*="taLnk ulBlueLinks"]')
+        if len(element1) != 0:
+            element1[0].click()
+            time.sleep(2)
+        html = (driver.page_source).encode('utf-8')
+        extract_reviews(html, driver)
+    else:
+        print("last page")
+        driver.quit()
+        csvfile.close()
+
+
+sys.setrecursionlimit(1500)
+csvfile = open('zooreviews2.csv', 'w+', encoding='utf-8', newline='')
+website = 'https://www.tripadvisor.com.sg/Attraction_Review-g294265-d324542-Reviews-Singapore_Zoo-Singapore.html'
+scrape_with_headers(website)
             for item in self.negatives:
                 if token in item:
                     score = score - 1
