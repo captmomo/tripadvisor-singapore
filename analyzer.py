@@ -1,69 +1,49 @@
-import csv
-import sys
-import time
+import re
 
-from bs4 import BeautifulSoup
-from selenium import webdriver
-from selenium.webdriver import DesiredCapabilities
-
-
-def set_headers():
-    desired_capabilities = DesiredCapabilities.PHANTOMJS.copy()
-    desired_capabilities['phantomjs.page.customHeaders.User-Agent'] = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) ' \
-        'AppleWebKit/537.36 (KHTML, like Gecko) ' \
-        'Chrome/39.0.2171.95 Safari/537.36'
-    driver = webdriver.PhantomJS(desired_capabilities=desired_capabilities)
-    return driver
+import nltk
+from nltk.corpus import stopwords
+from nltk.probability import FreqDist
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+from nltk.tokenize import word_tokenize
 
 
-def scrape_with_headers(url):
-    driver = set_headers()
-    driver.get(url)
-    time.sleep(2)
-    element1 = driver.find_elements_by_css_selector(
-        'span[class*="taLnk ulBlueLinks"]')
-    if len(element1) != 0:
-        element1[0].click()
-        time.sleep(2)
-    html = (driver.page_source).encode('utf-8')
-    extract_reviews(html, driver)
+class Analyzer():
+    """Implements sentiment analysis."""
 
+    def __init__(self):
+        """Initialize Analyzer."""
+        self.positives = []
+        self.negatives = []
+        #https://stackoverflow.com/questions/15778747/clarifications-on-the-re-findall-method-in-python
+        with open("positive-words.txt", 'r') as lines:
+            for line in lines:
+                positive_words = re.findall(r"[\w]+|[.,!?;]", line.rstrip())
+                #print(pos_words)
+                self.positives.append(positive_words)
+        print(self.positives)
 
-def extract_reviews(html, driver):
-    soup = BeautifulSoup(html, 'lxml')
-    for review in soup.find_all("div", {"class": "prw_rup prw_reviews_basic_review_hsx"}):
-        review_text = review.find("p", {"class": "partial_entry"}).text
-        wr = csv.writer(csvfile, dialect='excel')
-        wr.writerow([review_text])
+        with open("negative-words.txt", 'r') as lines:
+            for line in lines:
+                negative_words = re.findall(r"[\w]+|[.,!?;]", line.rstrip())
+                #print(pos_words)
+                self.negatives.append(negative_words)
+        print(self.negatives)
 
-    navigation = soup.find("div", {"class": "unified pagination north_star "})
-    if navigation.find("span", {"class": "nav next disabled"}) == None:
-        next_button = driver.find_element_by_xpath(
-            "//div[@class='ui_button primary ' and text()='Next']")
-        next_button.click()
-        time.sleep(2)
-        element1 = driver.find_elements_by_css_selector(
-            'span[class*="taLnk ulBlueLinks"]')
-        if len(element1) != 0:
-            element1[0].click()
-            time.sleep(2)
-        html = (driver.page_source).encode('utf-8')
-        extract_reviews(html, driver)
-    else:
-        print("last page")
-        driver.quit()
-        csvfile.close()
+    def analyze(self, text):
+        """Analyze text for sentiment, returning its score."""
+        tokenizer = nltk.tokenize.TweetTokenizer()
+        tokens = tokenizer.tokenize(text.lower())
 
-
-sys.setrecursionlimit(1500)
-csvfile = open('zooreviews2.csv', 'w+', encoding='utf-8', newline='')
-website = 'https://www.tripadvisor.com.sg/Attraction_Review-g294265-d324542-Reviews-Singapore_Zoo-Singapore.html'
-scrape_with_headers(website)
+        score = 0
+        #https://stackoverflow.com/questions/8275417/check-substring-match-of-a-word-in-a-list-of-words
+        for token in tokens:
+            for item in self.positives:
+                if token in item:
+                    score = score + 1
             for item in self.negatives:
                 if token in item:
                     score = score - 1
         #print(score)
-        # TODO
         return score
 
     def vader_analyze(self, text):
@@ -77,37 +57,6 @@ scrape_with_headers(website)
         top_50 = fdist1.most_common(50)
         return top_50
 
-    def animal_frequency(self, input_list, raw_text):
-        animals = input_list
-        animals = [word.lower() for word in animals]
-        #http://www.nltk.org/howto/stem.html
-        stemmer = nltk.PorterStemmer()
-        raw_text = raw_text
-        singles = [stemmer.stem(word) for word in raw_text]
-        animal_text = []
-        for word in singles:
-            if word in animals:
-                animal_text.append(word)
-            else:
-                continue
-        fdist1 = FreqDist(animal_text)
-        top_50 = fdist1.most_common(50)
-        return top_50
-
-        # TODO
-        return score
-    
-    def vader_analyze(self, text):
-        vader = SentimentIntensityAnalyzer()
-        score = vader.polarity_scores(text)
-        return score['compound']
-
-    def frequency(self, text):
-        fdist1 = FreqDist(text)
-        print(fdist1)
-        top_50 = fdist1.most_common(50)
-        return top_50
-    
     def animal_frequency(self, input_list, raw_text):
         animals = input_list
         animals = [word.lower() for word in animals]
