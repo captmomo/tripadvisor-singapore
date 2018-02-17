@@ -2,6 +2,14 @@
 python script to scrape reviews from tripadvisor. perform sentiment analysis and word frequency count.
 this built upon cs50 sentiments assignment.  
 https://captmomo.github.io/tripadvisor-singapore-zoo/  
+
+# Description
+
+Made a python script to scrape reviews from Tripadvisor and process the raw text. And another script to do a sentiment analysis and word frequency count. I used the CS50 Sentiments project as a starting point. Scraping was done with a combination of beautiful soup and selenium. The analysis was done using nltk
+
+The results are quite different from what was on the tripadvisor page.
+<img src='https://guavarilla.files.wordpress.com/2017/12/tripzoo.png' alt='tripadvisor' class='inline' />
+
 ## Sentiment analysis piechart
 
 ## Results using VADER sentiment intensity analyzer
@@ -17,6 +25,9 @@ https://captmomo.github.io/tripadvisor-singapore-zoo/
 <img src="newplot.png" alt="entire text" class="inline"/>
 
 ## Top 50 most frequently used words
+
+You may notice that there’s a difference between my results and tripadvisor’s most talked about topics. I think this is because they are counting the frequency of ngrams. What I did was after tokenizing the text, I singularized (is that a word?) the words and compared them to a list of animals I obtained from the Singapore Zoo wikipedia page.
+
 <table cellspacing="5" cellpadding="2">
 <tbody>
 <tr>
